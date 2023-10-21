@@ -1,0 +1,4 @@
+Se guardan las interfaces que extienden de las clases
+Aqui se encontraran todos los metodos necesarios para interactuar co la base de datos
+
+Son repositorios que heredan de MongoRepository, que es una interfaz que nos proporciona Spring Data MongoDB y le da las funcionalidades de CRUD

@@ -1,0 +1,29 @@
+Modelado de los datos que ser'an persistidos en la base de datos.
+
+Existe una 2 coleccion en la base de datos MongoDB llama "tnosqlv1" que contiene los siguientes campos:
+
+
+La clase DatosPersona contiene los siguientes campos:
+
+    private String id;
+
+    private String ci;
+    private String nombre;
+    private String apellido;
+    private int edad;
+
+Mientras que la calse Direccion contiene los siguientes campos:
+
+    private String id;
+
+    private String ci;
+    private String Departamento;
+    private String Localidad;
+    private String Calle;
+    private int Nro;
+    private String Apartamento;
+    private String Padrón;
+    private String Ruta;
+    private int Km;
+    private String Letra;
+    private String Barrio;

@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  # configuracion del servidor alpine
+  java_app:
+    container_name: java_app
+    image: tnosql-rest:1.0
+    build: .
+    links:
+        - mongodb
+        - redis
+    ports:
+      - "8080:8080"
+    environment:
+        - MONGO_HOST=mongodb
+        - MONGO_PORT=27017
+        - MONGO_DB=tnosqlv1
+        - MONGO_USER=root
+        - MONGO_PASS=password
+        - REDIS_HOST=redis
+        - REDIS_PORT=6379
+    depends_on:
+        - mongodb
+        - redis
+  mongodb:
+    image: mongo:latest
+    container_name: mongorest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_ROOT_DATABASE=tnosqlv1
+      - MONGO_PORT=27017
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./database/mongodb/db:/data/db
+      - ./database/mongodb/dev.archive:/Databases/dev.archive
+      - ./database/mongodb/production:/Databases/production
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"

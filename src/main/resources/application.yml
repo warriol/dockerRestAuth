@@ -1,0 +1,26 @@
+spring:
+  data:
+    mongodb:
+      # para localhost
+      password: password
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost:27017/tnosqlv1
+    redis:
+      host: localhost
+      port: 6379
+    # para docker
+#    mongodb:
+#      #authentication-database: ${MONGO_USER}
+#      database: ${MONGO_DB}
+#      username: ${MONGO_USER}
+#      password: ${MONGO_PASS}
+#      host: ${MONGO_HOST}
+#      port: ${MONGO_PORT}
+#    redis:
+#      host: ${REDIS_HOST}
+#      port: ${REDIS_PORT}
+# confirguacion de la ruta del swagger
+springdoc:
+  swagger-ui:
+    path: /v1/swagger.html

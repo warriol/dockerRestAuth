@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Main-Class: com.tnosql.v2.api.JavaRestMongoApplication
+Class-Path: spring-boot-starter-3.1.4.jar netty-codec-4.1.97.Final.jar l
+ ogback-core-1.4.11.jar mongodb-driver-sync-4.9.1.jar spring-aop-6.0.12.
+ jar micrometer-observation-1.11.4.jar jakarta.annotation-api-2.1.1.jar 
+ spring-context-6.0.12.jar jackson-datatype-jdk8-2.15.2.jar spring-boot-
+ 3.1.4.jar spring-boot-devtools-3.1.4.jar jackson-annotations-2.15.2.jar
+  spring-data-commons-3.1.4.jar spring-boot-starter-tomcat-3.1.4.jar tom
+ cat-embed-websocket-10.1.13.jar bson-record-codec-4.9.1.jar spring-boot
+ -starter-data-redis-3.1.4.jar jackson-databind-2.15.2.jar spring-oxm-6.
+ 0.12.jar spring-boot-starter-web-3.1.4.jar spring-context-support-6.0.1
+ 2.jar log4j-to-slf4j-2.20.0.jar spring-boot-starter-json-3.1.4.jar micr
+ ometer-commons-1.11.4.jar spring-tx-6.0.12.jar reactor-core-3.5.10.jar 
+ snakeyaml-1.33.jar spring-web-6.0.12.jar netty-common-4.1.97.Final.jar 
+ lombok-1.18.30.jar spring-data-keyvalue-3.1.4.jar spring-beans-6.0.12.j
+ ar tomcat-embed-el-10.1.13.jar spring-boot-autoconfigure-3.1.4.jar spri
+ ng-jcl-6.0.12.jar spring-boot-starter-data-mongodb-3.1.4.jar spring-dat
+ a-redis-3.1.4.jar bson-4.9.1.jar spring-expression-6.0.12.jar logback-c
+ lassic-1.4.11.jar spring-data-mongodb-4.1.4.jar lettuce-core-6.2.6.RELE
+ ASE.jar log4j-api-2.20.0.jar slf4j-api-2.0.9.jar spring-core-6.0.12.jar
+  reactive-streams-1.0.4.jar jackson-core-2.15.2.jar netty-resolver-4.1.
+ 97.Final.jar tomcat-embed-core-10.1.13.jar netty-handler-4.1.97.Final.j
+ ar netty-buffer-4.1.97.Final.jar mongodb-driver-core-4.9.1.jar netty-tr
+ ansport-4.1.97.Final.jar spring-boot-starter-logging-3.1.4.jar jul-to-s
+ lf4j-2.0.9.jar spring-webmvc-6.0.12.jar netty-transport-native-unix-com
+ mon-4.1.97.Final.jar jackson-datatype-jsr310-2.15.2.jar jackson-module-
+ parameter-names-2.15.2.jar
+
