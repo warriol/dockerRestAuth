@@ -8,11 +8,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -20,45 +20,52 @@ import java.util.List;
 @RequiredArgsConstructor
 @SpringBootApplication
 public class DatosPersonaController {
-
     /**
      * instancia de DatosPersonaService
      */
     private final DatosPersonaService datosPersonaService;
-
     /**
      * recurso para obtener una lista de personas
      */
-    @Operation(summary = "Obtener una lista de personas")
+    @Operation(summary = "Este método permite Obtener una Lista de TODAS las personas personas registradas en el sistema.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Lista de personas",
             content = @io.swagger.v3.oas.annotations.media.Content(mediaType = "application/json")),
         @ApiResponse(responseCode = "401", description = "No autorizado",
             content = @Content)
     })
-    @GetMapping("/personas")
+    @GetMapping("/findAll")
     public List<DatosPersona> findAll() {
         return datosPersonaService.findAll();
     }
-
     /**
      * recurso para guardar una persona
      */
-    @Operation(summary = "Guardar un objeto persona")
+    @Operation(summary = "Este método permite Guardar un objeto persona")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Objeto guardado correctamente",
             content = @io.swagger.v3.oas.annotations.media.Content(mediaType = "application/json")),
         @ApiResponse(responseCode = "401", description = "La Persona ya Existe",
             content = @Content)
     })
-    @PostMapping("/personas")
+    @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody DatosPersona datosPersona) {
         boolean saved = datosPersonaService.save(datosPersona);
+        Map<String, String> response = new HashMap<>();
+        int codigo;
         if (saved) {
-            return ResponseEntity.ok().build(); // HTTP 200 OK
+            // objeto gaurdado correctamente, status 200
+            codigo = 200;
+            response.put("codigo", "200");
+            response.put("estado", "ok");
+            response.put("mensaje", "La Persona se agregó correctamente.");
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("La Persona ya Existe"); // HTTP 401 Unauthorized
+            // error al guardar, status 401
+            codigo = 401;
+            response.put("codigo", "401");
+            response.put("estado", "error");
+            response.put("mensaje", "La Persona ya Existe");
         }
+        return ResponseEntity.status(codigo).body(response);
     }
-
 }

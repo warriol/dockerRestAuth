@@ -7,16 +7,15 @@ spring:
       port: 27017
       uri: mongodb://localhost:27017/tnosqlv1
     redis:
-      host: localhost
+      host: 127.0.0.1
       port: 6379
-    # para docker
-#    mongodb:
-#      #authentication-database: ${MONGO_USER}
+#      authentication-database: admin
 #      database: ${MONGO_DB}
 #      username: ${MONGO_USER}
 #      password: ${MONGO_PASS}
 #      host: ${MONGO_HOST}
 #      port: ${MONGO_PORT}
+#      #uri: mongodb://root:password@mongodb:27017/tnosqlv1?authSource=admin
 #    redis:
 #      host: ${REDIS_HOST}
 #      port: ${REDIS_PORT}

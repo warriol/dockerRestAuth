@@ -1,95 +1,13 @@
 {
 	"info": {
-		"_postman_id": "6202ef32-f116-4c73-a678-ea6b0bb69801",
-		"name": "NoSQL",
+		"_postman_id": "a34f9d05-230a-41aa-a51e-2a1275f43113",
+		"name": "dockerrest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30168908"
+		"_exporter_id": "23725091"
 	},
 	"item": [
 		{
-			"name": "AltaPersona",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"ci\": \"123456\",\r\n    \"nombre\": \"Elyiquel\",\r\n    \"apellido\": \"Vera\",\r\n    \"edad\": 3\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/v1/personas",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1",
-						"personas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "AltaDireccion",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"ci\": \"49849465\",\r\n    \"departamento\": \"Colonia2\",\r\n    \"localidad\": \"Coloni Valdence2\",\r\n    \"barrio\": \"1231\",\r\n    \"calle\": \"Av. 18Julio\",\r\n    \"nro\": \"123\",\r\n    \"apartamento\": \"A2\",\r\n    \"padron\": \"5678\",\r\n    \"ruta\": \"R10\",\r\n    \"km\": 5,\r\n    \"letra\": \"B\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/api/v1/direccion",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1",
-						"direccion"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "BuscarDireccionPorCI",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/api/v1/direccion/51596751",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1",
-						"direccion",
-						"51596751"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "FiltrarDireccion_Json",
+			"name": "http://localhost:8080/api/v1/findAll",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -98,7 +16,67 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"departamento\": \"Colonia\",\r\n    \"localidad\": \"Carrasco\",\r\n    \"barrio\": \"Residencial\"\r\n}",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/findAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"findAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ci\": \"11111111\",\r\n    \"nombre\": \"wilson\",\r\n    \"apellido\": \"arriola\",\r\n    \"edad\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/direccion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ci\": \"11111111\",\r\n  \"departamento\": \"artigas\",\r\n  \"localidad\": \"artigas\",\r\n  \"barrio\": \"string\",\r\n  \"calle\": \"string\",\r\n  \"nro\": \"string\",\r\n  \"apartamento\": \"string\",\r\n  \"padron\": \"string\",\r\n  \"ruta\": \"string\",\r\n  \"km\": 0,\r\n  \"letra\": \"string\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,12 +100,12 @@
 			"response": []
 		},
 		{
-			"name": "FiltrarDireccion_Parametros",
+			"name": "http://localhost:8080/api/v1/direccion",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/direccion?departamento=Montevideo&localidad=Carrasco&barrio=1231",
+					"raw": "http://localhost:8080/api/v1/direccion?departamento=artigas&barrio=artigas",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,16 +119,125 @@
 					"query": [
 						{
 							"key": "departamento",
-							"value": "Montevideo"
+							"value": "artigas"
 						},
 						{
 							"key": "localidad",
-							"value": "Carrasco"
+							"value": "artigas",
+							"disabled": true
 						},
 						{
 							"key": "barrio",
-							"value": "1231"
+							"value": "artigas"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/direccion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/direccion?departamento=artigas&barrio=artigas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"direccion"
+					],
+					"query": [
+						{
+							"key": "departamento",
+							"value": "artigas"
+						},
+						{
+							"key": "localidad",
+							"value": "artigas",
+							"disabled": true
+						},
+						{
+							"key": "barrio",
+							"value": "artigas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/cache/direccion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cache/direccion?departamento=artigas&barrio=artigas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cache",
+						"direccion"
+					],
+					"query": [
+						{
+							"key": "departamento",
+							"value": "artigas"
+						},
+						{
+							"key": "localidad",
+							"value": "artigas",
+							"disabled": true
+						},
+						{
+							"key": "barrio",
+							"value": "artigas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/cache/direccion/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cache/direccion/10479510",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cache",
+						"direccion",
+						"10479510"
 					]
 				}
 			},

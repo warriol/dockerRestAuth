@@ -2,41 +2,79 @@ version: "3.9"
 services:
   # configuracion del servidor alpine
   java_app:
-    container_name: java_app
+    #container_name: java_app
     image: tnosql-rest:1.0
-    build: .
-    links:
-        - mongodb
-        - redis
     ports:
       - "8080:8080"
+    build: .
+    links:
+      - mongodb
+      - redis
     environment:
-        - MONGO_HOST=mongodb
-        - MONGO_PORT=27017
-        - MONGO_DB=tnosqlv1
-        - MONGO_USER=root
-        - MONGO_PASS=password
-        - REDIS_HOST=redis
-        - REDIS_PORT=6379
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DB=tnosqlv1
+      - MONGO_USER=root
+      - MONGO_PASS=password
+      - REDIS_HOST=redis-db
+      - REDIS_PORT=6379
     depends_on:
-        - mongodb
-        - redis
+      - mongodb
+      - redis
+    networks:
+      - miredDocker
   mongodb:
-    image: mongo:latest
+    image: mongo:7.0.2
     container_name: mongorest
+    hostname: mongodb
+    ports:
+      - "27017:27017"
+    restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=password
-      - MONGO_INITDB_ROOT_DATABASE=tnosqlv1
-      - MONGO_PORT=27017
-    ports:
-      - "27017:27017"
+      - MONGO_INITDB_DATABASE=tnosqlv1
     volumes:
       - ./database/mongodb/db:/data/db
       - ./database/mongodb/dev.archive:/Databases/dev.archive
       - ./database/mongodb/production:/Databases/production
+    networks:
+      - miredDocker
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_URL=mongodb://root:password@mongodb:27017/tnosqlv1?authSource=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=mexpress
+      - ME_CONFIG_BASICAUTH_PASSWORD=mexpress
+    links:
+      - mongodb
+    networks:
+      - miredDocker
   redis:
+    hostname: redis-db
     image: redis:latest
     container_name: redis
+    command: redis-server --port 6379 --bind 0.0.0.0
     ports:
       - "6379:6379"
+    restart: always
+    networks:
+      - miredDocker
+  jenkins:
+    image: jenkins/jenkins:2.414.3-alpine-jdk17
+    container_name: jenkins
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+    networks:
+      - miredDocker
+networks:
+  miredDocker:
+    driver: bridge

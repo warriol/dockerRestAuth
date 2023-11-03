@@ -3,8 +3,6 @@
 Segundo laboratorio Bases de Datos NoSql 2023
 
 **Autores:**
-- Damián Vera
-- Nicolás Lepore
 - Wilson Arriola
 
 ## Avance del Taller
@@ -302,8 +300,8 @@ keys *
 
 # <span style="color: #10a1ff">Autores</span>
 
-Lista de autores del proyecto: [participantes](https://github.com/warriol/dockerRest/graphs/contributors).
+Lista de autores del proyecto: [participantes](https://github.com/warriol/dockerRestAuth/graphs/contributors).
 
-<a href="https://github.com/warriol/dockerRest/graphs/contributors">
+<a href="https://github.com/warriol/dockerRestAuth/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=warriol/dockerRest" width="25%"/>
 </a>
